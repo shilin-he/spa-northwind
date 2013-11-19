@@ -18,7 +18,7 @@ namespace Northwind.Model.Mapping
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             // Table & Column Mappings
-            ToTable("OrderDetails");
+            ToTable("Order Details");
             Property(t => t.OrderId).HasColumnName("OrderID");
             Property(t => t.ProductId).HasColumnName("ProductID");
             Property(t => t.UnitPrice).HasColumnName("UnitPrice");
