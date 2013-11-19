@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Northwind";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/require.js")" data-main="Scripts/main"></script>
+}
+
+<script type="text/x-kendo-template" id="layout-tmpl">
+    <div id="content"></div>
+</script>

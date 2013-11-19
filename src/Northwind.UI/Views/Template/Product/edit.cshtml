@@ -1,0 +1,105 @@
+﻿<div class="page-header">
+    <h3 data-bind="html: pageHeader"></h3>
+</div>
+@*Use a div instead of a form to avoid form submit when clicking on a button.*@
+<div class="form-horizontal" data-role="validator">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="productName">Product Name:</label>
+        <div class="col-md-10">
+            <input type="text" id="productName" name="productName" class="form-control"
+                maxlength="40" data-bind="value: model.productName"
+                required data-required-msg="Product Name is required." />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="ddlCategory">Category:</label>
+        <div class="col-md-10">
+            <select id="ddlCategory" name="category"
+                data-value-primitive="true"
+                data-role="dropdownlist"
+                data-option-label="-- Select Category --"
+                data-auto-bind="false"
+                data-bind="source: categories, value: model.categoryId"
+                data-text-field="categoryName"
+                data-value-field="categoryId"
+                required data-required-msg="Category is required.">
+            </select>
+            <button type="button" 
+                    class="btn btn-info btn-xs" 
+                    title="Add Category"
+                    data-bind="click: addCategory">Add Category</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="ddlSupplier">Supplier:</label>
+        <div class="col-md-10">
+            <select id="ddlSupplier" name="supplier"
+                data-value-primitive="true"
+                data-role="dropdownlist"
+                data-option-label="-- Select Supplier --"
+                data-auto-bind="false"
+                data-bind="source: suppliers, value: model.supplierId"
+                data-text-field="companyName"
+                data-value-field="supplierId"
+                required data-required-msg="Supplier is required.">
+            </select>
+            <button type="button" class="btn btn-info btn-xs" title="Add Supplier">Add Supplier</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="unitPrice">Unit Price:</label>
+        <div class="col-md-10 input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" id="unitPrice" name="unitPrice" class="form-control"
+                data-bind="value: model.unitPrice"
+                pattern="^\d+(\.\d*)?$" data-pattern-msg="Invalid Unit Price format."
+                required data-required-msg="Unit Price is required." />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="quantityPerUnit">Quantity Per Unit:</label>
+        <div class="col-md-10">
+            <input type="text" id="quantityPerUnit" class="form-control" maxlength="20"
+                data-bind="value: model.quantityPerUnit" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="unitsInStock">Units in Stock:</label>
+        <div class="col-md-10">
+            <input type="number" id="unitsInStock" name="unitsInStock" class="form-control"
+                data-bind="value: model.unitsInStock" min="0" max="32767" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="unitsOnOrder">Units on Order:</label>
+        <div class="col-md-10">
+            <input type="number" id="unitsOnOrder" name="unitsOnOrder" class="form-control"
+                data-bind="value: model.unitsOnOrder" min="0" max="32767" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="reorderLevel">Reorder Level:</label>
+        <div class="col-md-10">
+            <input type="number" id="reorderLevel" name="reorderLevel" class="form-control"
+                data-bind="value: model.reorderLevel" min="0" max="32767" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="checkbox">
+                <label>
+                    Discontinued
+                    <input type="checkbox" id="discontinued" name="discontinued" data-bind="checked: model.discontinued" />
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-primary" data-bind="click: save, enabled: model.isValid">Save</button>
+            <button class="btn btn-warning" data-bind="click: cancel">Cancel</button>
+            <button class="btn btn-danger" data-bind="click: destroy, visible: model.productId">Delete</button>
+        </div>
+    </div>
+</div>
+<div id="category-window"></div>

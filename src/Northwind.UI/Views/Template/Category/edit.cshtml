@@ -1,0 +1,27 @@
+﻿<div class="page-header">
+    <h3 data-bind="html: pageHeader"></h3>
+</div>
+@*Use a div instead of a form to avoid form submit when clicking on a button.*@
+<div data-role="validator">
+    <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input type="text" id="categoryName" class="form-control" data-bind="value: model.categoryName" maxlength="15" required />
+    </div>
+    <div class="form-group">
+        <label for="file">Picture</label>
+        <input type="file" id="file" name="file" data-role="upload"
+               data-async="{ saveUrl: '@Url.Action("Upload", "Image")', removeUrl: '@Url.Action("Remove", "Image")', removeField: 'fileName' }" 
+               data-multiple="false" />
+        <img class="img-thumbnail" style="width: 200px;" data-bind="attr: { src: categoryPictureUrl }" alt="Category Picture" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea rows="3" id="description" class="form-control" data-bind="value: model.description"></textarea>
+    </div>
+    <div class="form-group">
+        <div>
+            <button class="btn btn-primary" data-bind="click: save, enabled: model.isValid">Save</button>
+            <button class="btn btn-warning" data-bind="click: cancel">Cancel</button>
+        </div>
+    </div>
+</div>

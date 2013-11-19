@@ -1,0 +1,89 @@
+﻿<div class="page-header">
+    <h3>Product Details</h3>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Product Id:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.productId"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Product Name:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.productName"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Category:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.categoryName"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Supplier:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.supplierCompanyName"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Quantity Per Unit:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.quantityPerUnit"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Unit Price:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.unitPrice"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Unit in Stock:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.unitsInStock"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Units on Order:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.unitsOnOrder"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Reorder Level:</label>
+    </div>
+    <div class="col-md-10">
+        <span data-bind="text: model.reorderLevel"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Discontinued:</label>
+    </div>
+    <div class="col-md-10">
+        <input type="checkbox" data-bind="checked: model.discontinued" disabled />
+    </div>
+</div>
+<div>
+    <button class="btn" data-bind="click: update">Edit</button>
+    <button class="btn" data-bind="click: create">Create</button>
+    <button class="btn" data-bind="click: toggleStatus, html: toggleStatusBtnText"></button>
+    <button class="btn btn-primary" data-bind="click: search">Search</button>
+</div>

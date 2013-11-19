@@ -1,0 +1,19 @@
+﻿<div class="page-header">
+    <h3>Category Details</h3>
+</div>
+<dl>
+    <dt>Category Name</dt>
+    <dd data-bind="html: model.categoryName"></dd>
+    <dt>Description</dt>
+    <dd data-bind="html: model.description"></dd>
+    <dt>Picture</dt>
+    <dd><img class="img-thumbnail" style="width: 200px;" data-bind="attr: { src: categoryPictureUrl }" alt="Category Picture" /></dd>
+    <dt></dt>
+    <dd></dd>
+</dl>
+<div>
+    <button class="btn" data-bind="click: update">Edit</button>
+    <button class="btn" data-bind="click: create">Create</button>
+    <button class="btn" data-bind="click: destroy, visible: isDeletable">Remove</button>
+    <button class="btn btn-primary" data-bind="click: done">Done</button>
+</div>

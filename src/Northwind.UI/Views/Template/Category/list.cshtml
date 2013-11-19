@@ -1,0 +1,28 @@
+﻿<div class="page-header" style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Categories</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>
+                <a href="#/category/create" class="btn btn-primary pull-right">Create New Category</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div id="grid"
+     data-role="grid"
+     data-bind="source: categoryDataSource"
+     data-columns='[
+        { field: "categoryName", title: "Category", width: 200, template: "<a href=\"\\#/category/view/#= categoryId #\">#= categoryName #</a>" },
+        { field: "picture", title: "Picture", width: 150, sortable: false, template: "<img class=\"img-thumbnail\" src=\"@Url.Action("CategoryPicture", "Image")/#= pictureId #\" alt=\"Category Picture\" />" },
+        { field: "description", title: "Description", sortable: false }
+    ]'
+    data-pageable="{ buttonCount: 5, refresh: true }"
+    data-selectable="false"
+    data-scrollable="true"
+    data-reorderable="true"
+    data-resizable="true"
+    data-sortable="true"
+    data-editable="inline">
+</div>
