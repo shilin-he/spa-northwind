@@ -1,7 +1,4 @@
 ﻿define(function (require) {
-    var layout = require('common/layout'),
-        templateLoader = require('common/template-loader');
-
     return kendo.Class.extend({
         init: function (router) {
             this.router = router;
