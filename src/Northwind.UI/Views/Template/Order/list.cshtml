@@ -1,1 +1,29 @@
-﻿<p>Order List</p>
+﻿<div class="page-header" style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Orders</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>
+                <a href="#/order/create" class="btn btn-primary pull-right">Create New Order</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div id="grid"
+     data-role="grid"
+     data-bind="source: dataSource"
+     data-columns='[
+        { field: "orderId", title: "Order ID", width: 100, template: "<a href=\"\\#/order/view/#= orderId #\">#= orderId #</a>" },
+        { field: "customerCompanyName", title: "Customer", width: 300 },
+        { field: "employeeName", title: "Employee", width: 200 },
+        { field: "shipperCompanyName ", title: "Shipper" }
+    ]'
+    data-pageable="{ buttonCount: 5, refresh: true }"
+    data-selectable="false"
+    data-scrollable="true"
+    data-reorderable="true"
+    data-resizable="true"
+    data-sortable="true"
+    data-editable="inline">
+</div>

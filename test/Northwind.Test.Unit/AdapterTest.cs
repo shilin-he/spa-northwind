@@ -5,7 +5,7 @@ using Northwind.UI.Models;
 namespace Northwind.Test.Unit
 {
     [TestFixture]
-    public class TranslatorTest
+    public class AdapterTest
     {
         [Test]
         public void TestAutoMapperConfiguration()

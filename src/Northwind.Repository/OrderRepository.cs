@@ -31,7 +31,7 @@ namespace Northwind.Repository
 
         public IEnumerable<Order> GetOrders()
         {
-            return _ctx.Orders;
+            return _ctx.Orders.Include("Employee").Include("Shipper").Include("Customer");
         }
 
         public Order AddOrder(Order order)

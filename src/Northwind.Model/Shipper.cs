@@ -2,16 +2,16 @@ using System.Collections.Generic;
 
 namespace Northwind.Model
 {
-    public partial class Shipper
+    public sealed class Shipper
     {
         public Shipper()
         {
-            this.Orders = new List<Order>();
+            Orders = new List<Order>();
         }
 
-        public int ShipperID { get; set; }
+        public int ShipperId { get; set; }
         public string CompanyName { get; set; }
         public string Phone { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

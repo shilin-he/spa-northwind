@@ -1,0 +1,32 @@
+﻿
+<div class="page-header">
+    <h3>Order Details</h3>
+</div>
+<dl>
+    <dt>Order Id</dt>
+    <dd data-bind="html: model.orderId"></dd>
+    <dt>Order Date</dt>
+    <dd data-bind="html: model.orderDate"></dd>
+    <dt>Required Date</dt>
+    <dd data-bind="html: model.requiredDate"></dd>
+    <dt>Shipped Date</dt>
+    <dd data-bind="html: model.shippedDate"></dd>
+    <dt>Freight</dt>
+    <dd data-bind="html: model.freight"></dd>
+    <dt>Ship Name</dt>
+    <dd data-bind="html: model.shipName"></dd>
+    <dt>Ship Name</dt>
+    <dd data-bind="html: model.shipName"></dd>
+    <dt>Customer Company Name</dt>
+    <dd data-bind="html: model.customerCompanyName"></dd>
+    <dt>Shipper Company Name</dt>
+    <dd data-bind="html: model.shipperCompanyName"></dd>
+    <dt>Employee Name</dt>
+    <dd data-bind="html: model.employeeName"></dd>
+</dl>
+<div>
+    <button class="btn" data-bind="click: update">Edit</button>
+    <button class="btn" data-bind="click: create">Create</button>
+    <button class="btn" data-bind="click: destroy">Remove</button>
+    <button class="btn btn-primary" data-bind="click: list">Done</button>
+</div>

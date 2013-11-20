@@ -7,7 +7,7 @@ namespace Northwind.Model.Mapping
         public ShipperMap()
         {
             // Primary Key
-            HasKey(t => t.ShipperID);
+            HasKey(t => t.ShipperId);
 
             // Properties
             this.Property(t => t.CompanyName)
@@ -19,7 +19,7 @@ namespace Northwind.Model.Mapping
 
             // Table & Column Mappings
             this.ToTable("Shippers");
-            this.Property(t => t.ShipperID).HasColumnName("ShipperID");
+            this.Property(t => t.ShipperId).HasColumnName("ShipperID");
             this.Property(t => t.CompanyName).HasColumnName("CompanyName");
             this.Property(t => t.Phone).HasColumnName("Phone");
         }
