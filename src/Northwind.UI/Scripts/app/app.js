@@ -6,7 +6,7 @@
                     layout.render("#container");
                 },
                 routeMissing: function () {
-                    router.navigate(router.urlFor('default-route'));
+                    router.navigate(router.routeFor('default-route'));
                 }
             }),
             routeHandler = new RouteHandler(router);

@@ -393,6 +393,7 @@
     <Content Include="Views\Template\Supplier\edit.cshtml" />
     <Content Include="Views\Template\Order\list.cshtml" />
     <Content Include="Views\Template\Order\view.cshtml" />
+    <Content Include="Views\Template\Order\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

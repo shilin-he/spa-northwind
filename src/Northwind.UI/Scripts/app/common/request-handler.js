@@ -10,48 +10,56 @@
         handle: function (operation) {
             var that = this;
             return function (router) {
-                var viewModel = that.viewModelFunc(router),
-                    handler;
+                var handler;
+
+                that.router = router;
 
                 ['list', 'view', 'create', 'update'].indexOf(operation) >= 0 || (operation = 'list');
                 handler = eval('that._' + operation);
-                return handler.call(that, router, viewModel);
+                return handler.call(that);
             };
         },
 
-        _showView: function (operation, viewModel) {
+        __getViewModel: function () {
+            return this.viewModelFunc(this.router);
+        },
+
+        _showView: function (operation) {
             var that = this,
                 templateName = this.ModelConstructor.modelName() + '-' + operation;
             this.templateLoader(templateName, function (tmpl) {
-                var view = new kendo.View(tmpl, { model: viewModel });
+                var view = new kendo.View(tmpl, { model: that.__getViewModel() });
                 that.layout.showIn('#content', view);
             });
         },
 
-        _list: function (router, viewModel) {
+        _list: function () {
             var that = this;
             return function () {
-                that._showView('list', viewModel);
+                that._showView('list');
             };
         },
 
-        _create: function (router, viewModel) {
+        _create: function () {
             var that = this;
             return function () {
-                var model = viewModel.get('model');
+                var viewModel = that.__getViewModel(),
+                    model = viewModel.get('model');
 
                 if (!model || !model.isNew()) {
                     model = new that.ModelConstructor();
                     viewModel.set('model', model);
                 }
-                viewModel.set('pageHeader', 'Create New ' + that.ModelConstructor.dispalyName());
-                that._showView('edit', viewModel);
+                viewModel.set('pageHeader', 'Create New ' + that.ModelConstructor.displayName());
+                that._showView('edit');
             };
         },
 
-        __viewUpdateBase: function (router, viewModel, operation, pageHeader) {
+        __viewUpdateBase: function (operation, pageHeader) {
             var that = this;
             return function (id) {
+                var router = that.router,
+                    viewModel = that.__getViewModel();
                 that.ModelConstructor.getById(id, function (model) {
                     if (!model) {
                         router.navigate(router.routeFor('list-' + that.ModelConstructor.modelName()));
@@ -59,17 +67,17 @@
                     }
                     viewModel.set('model', model);
                     viewModel.set('pageHeader', pageHeader);
-                    that._showView(operation, viewModel);
+                    that._showView(operation);
                 });
             };
         },
 
-        _view: function (router, viewModel) {
-            return this.__viewUpdateBase(router, viewModel, 'view', this.ModelConstructor.displayName() + ' Details');
+        _view: function () {
+            return this.__viewUpdateBase('view', this.ModelConstructor.displayName() + ' Details');
         },
 
-        _update: function (router, viewModel) {
-            return this.__viewUpdateBase(router, viewModel, 'edit', 'Edit ', this.ModelConstructor.displayName());
+        _update: function () {
+            return this.__viewUpdateBase('edit', 'Edit ' + this.ModelConstructor.displayName());
         }
     });
 });

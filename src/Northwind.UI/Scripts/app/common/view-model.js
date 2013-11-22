@@ -36,9 +36,9 @@
             // To handle remote call failure,
             // check the uid of model to decide if it should be added again. ??
             if (model.isNew()) {
-                modelConstructor.create(model);
+                this.modelConstructor.create(model);
             }
-            modelConstructor.saveChanges(function (e) {
+            this.modelConstructor.saveChanges(function (e) {
                 router.navigate(router.routeFor(viewRouteName, { id: model.get('id') }));
             });
 
@@ -53,7 +53,7 @@
             if (modelId) {
                 router.navigate(router.routeFor(this.routeName('view'), { id: this.get('model').get('id') }));
             } else {
-                router.navigate(this.routeName('list'));
+                router.navigate(router.routeFor(this.routeName('list')));
             }
 
             // Prevent form post.
