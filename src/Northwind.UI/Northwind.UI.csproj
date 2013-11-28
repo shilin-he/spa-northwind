@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Models\CategoryDto.cs" />
     <Compile Include="Models\IAdapter.cs" />
+    <Compile Include="Models\OrderDetailDto.cs" />
     <Compile Include="Models\OrderDto.cs" />
     <Compile Include="Models\ProductDto.cs" />
     <Compile Include="Models\SupplierDto.cs" />
