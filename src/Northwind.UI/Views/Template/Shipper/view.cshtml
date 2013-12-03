@@ -1,0 +1,17 @@
+﻿<div class="page-header">
+    <h3>Shipper Details</h3>
+</div>
+<dl>
+    <dt>Shipper Id</dt>
+    <dd data-bind="html: model.shipperId"></dd>
+    <dt>Shipper Company Name</dt>
+    <dd data-bind="html: model.companyName"></dd>
+    <dt>Phone Number</dt>
+    <dd data-bind="html: model.phone"></dd>
+</dl>
+<div>
+    <button class="btn" data-bind="click: update">Edit</button>
+    <button class="btn" data-bind="click: create">Create</button>
+    <button class="btn" data-bind="click: destroy">Remove</button>
+    <button class="btn btn-primary" data-bind="click: list">Done</button>
+</div>

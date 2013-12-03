@@ -1,0 +1,28 @@
+﻿<div class="page-header" style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Shippers</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>
+                <a href="#/shipper/create" class="btn btn-primary pull-right">Create New Shipper</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div id="grid"
+     data-role="grid"
+     data-bind="source: dataSource"
+     data-columns='[
+        { field: "shipperId", title: "Shipper ID", width: 100, template: "<a href=\"\\#/shipper/view/#= shipperId #\">#= shipperId #</a>" },
+        { field: "companyName", title: "Company Name", width: 300 },
+        { field: "phone ", title: "Phone" }
+    ]'
+     data-pageable="{ buttonCount: 5, refresh: true }"
+    data-selectable="false"
+    data-scrollable="true"
+    data-reshipperable="true"
+    data-resizable="true"
+    data-sortable="true"
+    data-editable="inline">
+</div>

@@ -59,7 +59,7 @@ namespace Northwind.Model.Mapping
             this.ToTable("Orders Qry");
             this.Property(t => t.OrderID).HasColumnName("OrderID");
             this.Property(t => t.CustomerID).HasColumnName("CustomerID");
-            this.Property(t => t.EmployeeID).HasColumnName("EmployeeID");
+            this.Property(t => t.EmployeeID).HasColumnName("EmployeeId");
             this.Property(t => t.OrderDate).HasColumnName("OrderDate");
             this.Property(t => t.RequiredDate).HasColumnName("RequiredDate");
             this.Property(t => t.ShippedDate).HasColumnName("ShippedDate");

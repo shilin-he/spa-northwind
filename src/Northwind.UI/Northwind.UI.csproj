@@ -135,8 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ShipperController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -145,10 +147,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryDto.cs" />
+    <Compile Include="Models\EmployeeDto.cs" />
     <Compile Include="Models\IAdapter.cs" />
     <Compile Include="Models\OrderDetailDto.cs" />
     <Compile Include="Models\OrderDto.cs" />
     <Compile Include="Models\ProductDto.cs" />
+    <Compile Include="Models\ShipperDto.cs" />
     <Compile Include="Models\SupplierDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -348,14 +352,18 @@
     <Content Include="Scripts\app\handlers\product\view-handler.js" />
     <Content Include="Scripts\app\handlers\supplier\supplier-handler.js" />
     <Content Include="Scripts\app\models\category-model.js" />
+    <Content Include="Scripts\app\models\employee-model.js" />
     <Content Include="Scripts\app\models\order-model.js" />
     <Content Include="Scripts\app\models\product-model.js" />
+    <Content Include="Scripts\app\models\shipper-model.js" />
     <Content Include="Scripts\app\models\supplier-model.js" />
     <Content Include="Scripts\app\view-models\category-list-view-model.js" />
     <Content Include="Scripts\app\view-models\category-view-model.js" />
+    <Content Include="Scripts\app\view-models\employee-view-model.js" />
     <Content Include="Scripts\app\view-models\order-view-model.js" />
     <Content Include="Scripts\app\view-models\product-list-view-model.js" />
     <Content Include="Scripts\app\view-models\product-view-model.js" />
+    <Content Include="Scripts\app\view-models\shipper-view-model.js" />
     <Content Include="Scripts\app\view-models\supplier-view-model.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -395,6 +403,12 @@
     <Content Include="Views\Template\Order\list.cshtml" />
     <Content Include="Views\Template\Order\view.cshtml" />
     <Content Include="Views\Template\Order\edit.cshtml" />
+    <Content Include="Views\Template\Shipper\list.cshtml" />
+    <Content Include="Views\Template\Shipper\view.cshtml" />
+    <Content Include="Views\Template\Shipper\edit.cshtml" />
+    <Content Include="Views\Template\Employee\list.cshtml" />
+    <Content Include="Views\Template\Employee\view.cshtml" />
+    <Content Include="Views\Template\Employee\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

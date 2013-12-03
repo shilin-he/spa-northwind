@@ -7,82 +7,81 @@ namespace Northwind.Model.Mapping
         public EmployeeMap()
         {
             // Primary Key
-            this.HasKey(t => t.EmployeeID);
+            HasKey(t => t.EmployeeId);
 
             // Properties
-            this.Property(t => t.LastName)
+            Property(t => t.LastName)
                 .IsRequired()
                 .HasMaxLength(20);
 
-            this.Property(t => t.FirstName)
+            Property(t => t.FirstName)
                 .IsRequired()
                 .HasMaxLength(10);
 
-            this.Property(t => t.Title)
+            Property(t => t.Title)
                 .HasMaxLength(30);
 
-            this.Property(t => t.TitleOfCourtesy)
+            Property(t => t.TitleOfCourtesy)
                 .HasMaxLength(25);
 
-            this.Property(t => t.Address)
+            Property(t => t.Address.Addr)
                 .HasMaxLength(60);
 
-            this.Property(t => t.City)
+            Property(t => t.Address.City)
                 .HasMaxLength(15);
 
-            this.Property(t => t.Region)
+            Property(t => t.Address.Region)
                 .HasMaxLength(15);
 
-            this.Property(t => t.PostalCode)
+            Property(t => t.Address.PostalCode)
                 .HasMaxLength(10);
 
-            this.Property(t => t.Country)
+            Property(t => t.Address.Country)
                 .HasMaxLength(15);
 
-            this.Property(t => t.HomePhone)
+            Property(t => t.HomePhone)
                 .HasMaxLength(24);
 
-            this.Property(t => t.Extension)
+            Property(t => t.Extension)
                 .HasMaxLength(4);
 
-            this.Property(t => t.PhotoPath)
+            Property(t => t.PhotoPath)
                 .HasMaxLength(255);
 
             // Table & Column Mappings
-            this.ToTable("Employees");
-            this.Property(t => t.EmployeeID).HasColumnName("EmployeeID");
-            this.Property(t => t.LastName).HasColumnName("LastName");
-            this.Property(t => t.FirstName).HasColumnName("FirstName");
-            this.Property(t => t.Title).HasColumnName("Title");
-            this.Property(t => t.TitleOfCourtesy).HasColumnName("TitleOfCourtesy");
-            this.Property(t => t.BirthDate).HasColumnName("BirthDate");
-            this.Property(t => t.HireDate).HasColumnName("HireDate");
-            this.Property(t => t.Address).HasColumnName("Address");
-            this.Property(t => t.City).HasColumnName("City");
-            this.Property(t => t.Region).HasColumnName("Region");
-            this.Property(t => t.PostalCode).HasColumnName("PostalCode");
-            this.Property(t => t.Country).HasColumnName("Country");
-            this.Property(t => t.HomePhone).HasColumnName("HomePhone");
-            this.Property(t => t.Extension).HasColumnName("Extension");
-            this.Property(t => t.Photo).HasColumnName("Photo");
-            this.Property(t => t.Notes).HasColumnName("Notes");
-            this.Property(t => t.ReportsTo).HasColumnName("ReportsTo");
-            this.Property(t => t.PhotoPath).HasColumnName("PhotoPath");
+            ToTable("Employees");
+            Property(t => t.EmployeeId).HasColumnName("EmployeeID");
+            Property(t => t.LastName).HasColumnName("LastName");
+            Property(t => t.FirstName).HasColumnName("FirstName");
+            Property(t => t.Title).HasColumnName("Title");
+            Property(t => t.TitleOfCourtesy).HasColumnName("TitleOfCourtesy");
+            Property(t => t.BirthDate).HasColumnName("BirthDate");
+            Property(t => t.HireDate).HasColumnName("HireDate");
+            Property(t => t.Address.Addr).HasColumnName("Address");
+            Property(t => t.Address.City).HasColumnName("City");
+            Property(t => t.Address.Region).HasColumnName("Region");
+            Property(t => t.Address.PostalCode).HasColumnName("PostalCode");
+            Property(t => t.Address.Country).HasColumnName("Country");
+            Property(t => t.HomePhone).HasColumnName("HomePhone");
+            Property(t => t.Extension).HasColumnName("Extension");
+            Property(t => t.Photo).HasColumnName("Photo");
+            Property(t => t.Notes).HasColumnName("Notes");
+            Property(t => t.ThisReportsToEmployeeId).HasColumnName("ReportsTo");
+            Property(t => t.PhotoPath).HasColumnName("PhotoPath");
 
             // Relationships
-            this.HasMany(t => t.Territories)
+            HasMany(t => t.Territories)
                 .WithMany(t => t.Employees)
                 .Map(m =>
-                    {
-                        m.ToTable("EmployeeTerritories");
-                        m.MapLeftKey("EmployeeID");
-                        m.MapRightKey("TerritoryID");
-                    });
+                {
+                    m.ToTable("EmployeeTerritories");
+                    m.MapLeftKey("EmployeeId");
+                    m.MapRightKey("TerritoryID");
+                });
 
-            this.HasOptional(t => t.Employee1)
-                .WithMany(t => t.Employees1)
-                .HasForeignKey(d => d.ReportsTo);
-
+            HasOptional(t => t.ThisReportsToEmployee)
+                .WithMany(t => t.EmployeesReportToThis)
+                .HasForeignKey(d => d.ThisReportsToEmployeeId);
         }
     }
 }

@@ -10,18 +10,18 @@ namespace Northwind.Model.Mapping
             HasKey(t => t.ShipperId);
 
             // Properties
-            this.Property(t => t.CompanyName)
+            Property(t => t.CompanyName)
                 .IsRequired()
                 .HasMaxLength(40);
 
-            this.Property(t => t.Phone)
+            Property(t => t.Phone)
                 .HasMaxLength(24);
 
             // Table & Column Mappings
-            this.ToTable("Shippers");
-            this.Property(t => t.ShipperId).HasColumnName("ShipperID");
-            this.Property(t => t.CompanyName).HasColumnName("CompanyName");
-            this.Property(t => t.Phone).HasColumnName("Phone");
+            ToTable("Shippers");
+            Property(t => t.ShipperId).HasColumnName("ShipperID");
+            Property(t => t.CompanyName).HasColumnName("CompanyName");
+            Property(t => t.Phone).HasColumnName("Phone");
         }
     }
 }

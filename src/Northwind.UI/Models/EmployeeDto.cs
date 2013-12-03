@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Northwind.Model;
 
-namespace Northwind.Model
+namespace Northwind.UI.Models
 {
-    public sealed class Employee
+    public class EmployeeDto
     {
-        public Employee()
-        {
-            EmployeesReportToThis = new List<Employee>();
-            Orders = new List<Order>();
-            Territories = new List<Territory>();
-        }
-
         public int EmployeeId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -25,10 +18,6 @@ namespace Northwind.Model
         public byte[] Photo { get; set; }
         public string Notes { get; set; }
         public int? ThisReportsToEmployeeId { get; set; }
-        public Employee ThisReportsToEmployee { get; set; }
         public string PhotoPath { get; set; }
-        public ICollection<Employee> EmployeesReportToThis { get; set; }
-        public ICollection<Order> Orders { get; set; }
-        public ICollection<Territory> Territories { get; set; }
     }
 }

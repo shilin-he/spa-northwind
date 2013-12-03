@@ -16,7 +16,7 @@
             router.route(route['name'], route['route'], route['handler'](router));
         }
 
-        router.route(/^\/([^\/]+)\/([^\/]+)(?:\/([^\/]+))?$/, routeHandler.handle);
+        router.route(/^\/([^\/]+)\/([^\/]+)(?:\/([^\/]+))?$/, routeHandler.handle());
 
         return router;
     });

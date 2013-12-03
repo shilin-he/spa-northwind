@@ -1,0 +1,17 @@
+﻿<div class="page-header">
+    <h3>Employee Details</h3>
+</div>
+<dl>
+    <dt>Employee Id</dt>
+    <dd data-bind="html: model.employeeId"></dd>
+    <dt>Employee Last Name</dt>
+    <dd data-bind="html: model.lastName"></dd>
+    <dt>Employee First Name</dt>
+    <dd data-bind="html: model.firstName"></dd>
+</dl>
+<div>
+    <button class="btn" data-bind="click: update">Edit</button>
+    <button class="btn" data-bind="click: create">Create</button>
+    <button class="btn" data-bind="click: destroy">Remove</button>
+    <button class="btn btn-primary" data-bind="click: list">Done</button>
+</div>

@@ -1,0 +1,29 @@
+﻿<div class="page-header" style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Employees</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>
+                <a href="#/employee/create" class="btn btn-primary pull-right">Create New Employee</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div id="grid"
+     data-role="grid"
+     data-bind="source: dataSource"
+     data-columns='[
+        { field: "employeeId", title: "Employee ID", width: 100, template: "<a href=\"\\#/employee/view/#= employeeId #\">#= employeeId #</a>" },
+        { field: "lastName", title: "Last Name", width: 300 },
+        { field: "firstName", title: "First Name", width: 200 },
+        { field: "title", title: "Title" }
+    ]'
+    data-pageable="{ buttonCount: 5, refresh: true }"
+    data-selectable="false"
+    data-scrollable="true"
+    data-reemployeeable="true"
+    data-resizable="true"
+    data-sortable="true"
+    data-editable="inline">
+</div>

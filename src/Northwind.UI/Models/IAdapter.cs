@@ -55,6 +55,17 @@ namespace Northwind.UI.Models
                   .ForMember(o => o.Shipper, opt => opt.Ignore())
                   .ForMember(o => o.ShipAddress, opt => opt.Ignore())
                   .ForMember(o => o.OrderDetails, opt => opt.Ignore());
+
+            Mapper.CreateMap<Shipper, ShipperDto>();
+            Mapper.CreateMap<ShipperDto, Shipper>()
+                  .ForMember(x => x.Orders, opt => opt.Ignore());
+
+            Mapper.CreateMap<Employee, EmployeeDto>();
+            Mapper.CreateMap<EmployeeDto, Employee>()
+                  .ForMember(x => x.ThisReportsToEmployee, opt => opt.Ignore())
+                  .ForMember(x => x.EmployeesReportToThis, opt => opt.Ignore())
+                  .ForMember(x => x.Orders, opt => opt.Ignore())
+                  .ForMember(x => x.Territories, opt => opt.Ignore());
         }
 
         public TResult Adapt<TSource, TResult>(TSource source)
